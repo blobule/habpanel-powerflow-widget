@@ -77,10 +77,9 @@ This widget focus on path animation of three types: width, opacity or dash offse
 
 Ideally, use inkscape to edit the svg. The Object window and XML window (control-shift-X) are very useful for this.
 
-* make sure the svg has id='svg8'
-* identify the path with id='pathP1' to 'pathP4'
+* make sure the svg has id='svg8'   (or change 'svg8' inside power-flow.js, near line 97)
+* identify the path with id='pathP1' to 'pathP4'   (or change power-flow.js, near line 111)
 
-These ids are hardcoded in power-flow.js, but easy to change.
-
+The svg file name is set as templateURL in power-flow.js, near line 88.
 
 
