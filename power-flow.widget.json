@@ -1,0 +1,51 @@
+{
+    "template": "<div oc-lazy-load=\"['/static/powerFlow/power-flow.js','/static/powerFlow/control-oh.js']\"  style=\"position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: calc(100% - 20px);\">\n  <div ng-controller=\"powerFlowCtrlOH\">\n    <ui-power-flow house=\"house\" bat=\"bat\" p1=\"p1\" p2=\"p2\" p3=\"p3\" p4=\"p4\"></ui-power-flow>\n  </div>\n</div>\n",
+    "name": "Power Flow",
+    "author": "Sébastien Roy",
+    "description": "Power Flow widget, displaying flow of electricity. Intented as a demo of SVG animation.",
+    "id": "power-flow",
+    "settings": [
+        {
+            "id": "label",
+            "label": "Label",
+            "description": "Label for the widget, if desired",
+            "type": "string"
+        },
+        {
+            "id": "house",
+            "label": "House power usage",
+            "description": "House power isage, in kW",
+            "type": "item"
+        },
+        {
+            "id": "bat",
+            "label": "Battery capacity",
+            "description": "Battery capacity, in kWh",
+            "type": "item"
+        },
+        {
+            "id": "p1",
+            "label": "Grid power",
+            "description": "Grid power provided to the house, in kW",
+            "type": "item"
+        },
+        {
+            "id": "p2",
+            "label": "Solar power",
+            "description": "Solar power provided to the house, in kW",
+            "type": "item"
+        },
+        {
+            "id": "p3",
+            "label": "Battery power",
+            "description": "Battery power provided to the house, in kW",
+            "type": "item"
+        },
+        {
+            "id": "p4",
+            "label": "Thermal power",
+            "description": "Thermal power provided to the house, in kW",
+            "type": "item"
+        }
+    ]
+}
