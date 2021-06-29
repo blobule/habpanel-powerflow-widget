@@ -5,10 +5,19 @@ angular
 
 myControlOH.$inject = ['$scope','OHService'];
 function myControlOH($scope,OHService) {
-	console.log("OH items "+JSON.stringify(Object.keys(OHService),null,4));
-	console.log("$scope is "+JSON.stringify(Object.keys($scope),null,4));
+	//console.log("OH items "+JSON.stringify(Object.keys(OHService),null,4));
+	//console.log("$scope is "+JSON.stringify(Object.keys($scope),null,4));
 
 	var hasConfig=(typeof $scope.config != 'undefined' );
+
+	// some options from config
+	$scope.options= {
+		p1animation : ( hasConfig?$scope.config.p1animation:'pulse' ),
+		p2animation : ( hasConfig?$scope.config.p2animation:'opacity' ),
+		p3animation : ( hasConfig?$scope.config.p3animation:'move' ),
+		p4animation : ( hasConfig?$scope.config.p4animation:'move' )
+	};
+
 
 	if( !hasConfig ) return;
 

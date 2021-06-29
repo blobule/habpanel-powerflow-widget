@@ -46,11 +46,18 @@
       if( type=='move' ) {
 		animate.setAttribute('attributeName',"stroke-dashoffset"); // default is 'move'
 		len=dottedLen(path);
+	        if( isNaN(len) ) {
+		      // no dashing! add some by default
+	  	      path.style['stroke-dasharray']="4,2";
+		      len=dottedLen(path);
+	        }
       }else if( type=='pulse' ) {
 	      len=path.style['stroke-width'];
 	      animate.setAttribute('attributeName',"stroke-width");
+	      path.style['stroke-dasharray']="none"; // no dashing!
       }else if( type=='opacity' ) {
 	      animate.setAttribute('attributeName',"stroke-opacity");
+	      path.style['stroke-dasharray']="none"; // no dashing!
       }
 
       //animate.setAttribute('values',"0;"+len);
@@ -68,7 +75,7 @@
 
   function powerflowDirective($interval, $filter) {
     return {
-      restrict: 'EA',
+      restrict: 'E',
       scope: {
 	house: '=',
 	bat: '=',
@@ -76,25 +83,35 @@
 	p2: '=',
 	p3: '=',
 	p4: '=',
+	options: '='
       },
       templateUrl: "/static/powerFlow/solarenergy.svg",		// <<<< put your svg here
       link: function(scope, element, attrs) {
 	      var el=element[0];
 	      var elP=el.parentElement; // for size info, use elP.clientWidth and elP.clientHeight
-	      console.log("size of parent "+elP.clientWidth+" , "+elP.clientHeight);
-	      console.log("size of us     "+el.clientWidth+" , "+el.clientHeight);
+	      //console.log("size of parent "+elP.clientWidth+" , "+elP.clientHeight);
+	      //console.log("size of us     "+el.clientWidth+" , "+el.clientHeight);
 
 	      // find the svg inside the templateURL
 	      //var svg=el.children[0]; // assuming the templateURL is a single svg
 	      var svg=document.getElementById('svg8'); // get the svg with this id. (inkscape use svg8 by default)
-	      console.log("size of svg     "+svg.clientWidth+" , "+svg.clientHeight);
+	      //console.log("size of svg     "+svg.clientWidth+" , "+svg.clientHeight);
+
+	      //console.log("ccc "+scope.options.p1animation);
+	      //console.log("scope is "+JSON.stringify(Object.keys(scope),null,4));
+	      //console.log("scope.options is "+JSON.stringify(Object.keys(scope['options']),null,4));
+
+	      var animType1=((scope.options && scope.options.p1animation) || 'pulse');
+	      var animType2=((scope.options && scope.options.p2animation) || 'opacity');
+	      var animType3=((scope.options && scope.options.p3animation) || 'move');
+	      var animType4=((scope.options && scope.options.p4animation) || 'move');
 
 	      // locate each path to animate, keep some info to update the animation
 	      // each path is found by its id, so it must be set properly in inkscape or manually.
-	      var path1 = setupPath(svg,'pathP1','pulse');
-	      var path2 = setupPath(svg,'pathP2','opacity');
-	      var path3 = setupPath(svg,'pathP3','move');
-	      var path4 = setupPath(svg,'pathP4','move');
+	      var path1 = setupPath(svg,'pathP1',animType1);
+	      var path2 = setupPath(svg,'pathP2',animType2);
+	      var path3 = setupPath(svg,'pathP3',animType3);
+	      var path4 = setupPath(svg,'pathP4',animType4);
 
 	// directive parameters, initialized to 0
         scope.house=0;

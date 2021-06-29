@@ -54,3 +54,29 @@ For openraspbian, just do
 
 If you install the file elsewhere, make sure you adjust the widget [power-flow.widget.json](power-flow.widget.json) file accordingly.
 
+## How it works
+
+The widget is angular with a single templateURL, which should provide an svg or html containing an svg.
+
+The svg will be found by its id, and all animations are also found using the ids of the path to animate.
+
+The text is simpler to setup. Inside the svg, any text with the form {{house}} will display automatically the
+value of the variable 'house', which is associated to an item in the widget settings. Same for 'bat', and 'p1' to 'p4'.
+
+### Animation
+
+Since the whole svg is accessible to be modified dynamically according to items states, different animations are possible.
+
+This widget focus on path animation of three types: width, opacity or dash offset, which are available in settings as 'pulse', 'opacity' and 'move'.
+
+## how to customize
+
+Ideally, use inkscape to edit the svg. The Object window and XML window (control-shift-X) are very useful for this.
+
+* make sure the svg has id='svg8'
+* identify the path with id='pathP1' to 'pathP4'
+
+These ids are hardcoded in power-flow.js, but easy to change.
+
+
+
