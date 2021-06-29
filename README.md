@@ -82,4 +82,9 @@ Ideally, use inkscape to edit the svg. The Object window and XML window (control
 
 The svg file name is set as templateURL in power-flow.js, near line 88.
 
+Everything related to OpenHab is in the file control-oh.js. Go there to add/remove tracked items, according to what you need. Note that items names are never hardcoded, but are obtained through the config settings, for convenience.
+
+## Have fun!
+
+I hope this is a good example of a dynamic SVG widget that is not too hard to customize, given that the svg is built as a separate file.
 
