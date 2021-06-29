@@ -71,7 +71,7 @@ value of the variable 'house', which is associated to an item in the widget sett
 
 Since the whole svg is accessible to be modified dynamically according to items states, different animations are possible.
 
-This widget focus on path animation of three types: width, opacity or dash offset, which are available in settings as 'pulse', 'opacity' and 'move'.
+This widget focus on path animation of three types: width, opacity or dash offset, which are available in settings as 'pulse', 'opacity' and 'move'. They can be changed in the widget settings, for convenience.
 
 ## how to customize
 
