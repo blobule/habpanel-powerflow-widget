@@ -22,10 +22,12 @@ The code is easy to change in order to accomodate other SVG and item selections.
 ### Parameters
 
 The widget can be configured in habpanel.
-The only configuration available is the selection of items to display.
+The basic configuration is the selection of items to display:
 
 - 'house', 'bat' : value displayed as text
 - 'p1, to 'p4' : values displayed as text and as animation
+
+The animation for the 4 path can also be selected here ('move', 'pulse', 'opacity' ).
 
 ## Screenshot
 
@@ -50,7 +52,7 @@ Simply copy the directory powerFlow into the static html area of openhab.
 
 For openraspbian, just do
 
-`cp -r thermoKnob /etc/openhab2/html/`
+`cp -r powerFlow /etc/openhab2/html/`
 
 If you install the file elsewhere, make sure you adjust the widget [power-flow.widget.json](power-flow.widget.json) file accordingly.
 
