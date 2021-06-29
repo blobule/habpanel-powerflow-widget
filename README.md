@@ -45,6 +45,8 @@ In french, but you get the idea...
 
 A standalone demo is provided in [powerFlow/index.html](powerFlow/index.html)
 
+If everything is installed properly, you should find this demo on your openhab url, at /static/powerFlow/index.html.
+
 ## Installing
 
 This widget relies on static files, which must be installed manually.
